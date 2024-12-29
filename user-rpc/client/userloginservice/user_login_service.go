@@ -6,7 +6,7 @@ package userloginservice
 import (
 	"context"
 
-	"rpc/userRpc"
+	"github.com/doubunv/rpc-client/user-rpc/userRpc"
 
 	"github.com/zeromicro/go-zero/zrpc"
 	"google.golang.org/grpc"
