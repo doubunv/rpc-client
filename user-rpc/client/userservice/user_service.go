@@ -13,72 +13,53 @@ import (
 )
 
 type (
-	AddMenuReq            = userRpc.AddMenuReq
-	AddMenuResp           = userRpc.AddMenuResp
-	AddPermissionReq      = userRpc.AddPermissionReq
-	AddPermissionResp     = userRpc.AddPermissionResp
-	AddRoleReq            = userRpc.AddRoleReq
-	AddRoleResp           = userRpc.AddRoleResp
-	AdminUserListItem     = userRpc.AdminUserListItem
-	AdminUserListReq      = userRpc.AdminUserListReq
-	AdminUserListResp     = userRpc.AdminUserListResp
-	AdminUserLoginReq     = userRpc.AdminUserLoginReq
-	AdminUserLoginResp    = userRpc.AdminUserLoginResp
-	CreateAdminUserReq    = userRpc.CreateAdminUserReq
-	CreateAdminUserResp   = userRpc.CreateAdminUserResp
-	DeleteAdminUserReq    = userRpc.DeleteAdminUserReq
-	DeleteAdminUserResp   = userRpc.DeleteAdminUserResp
-	DeleteRoleReq         = userRpc.DeleteRoleReq
-	DeleteRoleResp        = userRpc.DeleteRoleResp
-	DeletedPermissionReq  = userRpc.DeletedPermissionReq
-	DeletedPermissionResp = userRpc.DeletedPermissionResp
-	GetAdminDetailReq     = userRpc.GetAdminDetailReq
-	GetAdminDetailResp    = userRpc.GetAdminDetailResp
-	GetAllMenuReq         = userRpc.GetAllMenuReq
-	GetAllMenuResp        = userRpc.GetAllMenuResp
-	GetMenuByAdminIdItem  = userRpc.GetMenuByAdminIdItem
-	GetMenuByAdminIdReq   = userRpc.GetMenuByAdminIdReq
-	GetMenuByAdminIdResp  = userRpc.GetMenuByAdminIdResp
-	GetMenuListReq        = userRpc.GetMenuListReq
-	GetMenuListResp       = userRpc.GetMenuListResp
-	GetPermissionListReq  = userRpc.GetPermissionListReq
-	GetPermissionListResp = userRpc.GetPermissionListResp
-	GetRoleListReq        = userRpc.GetRoleListReq
-	GetRoleListResp       = userRpc.GetRoleListResp
-	GetUserDetailByIdReq  = userRpc.GetUserDetailByIdReq
-	GetUserDetailByIdResp = userRpc.GetUserDetailByIdResp
-	GetUserListByIdsReq   = userRpc.GetUserListByIdsReq
-	GetUserListByIdsResp  = userRpc.GetUserListByIdsResp
-	GetUserListByPageReq  = userRpc.GetUserListByPageReq
-	GetUserListByPageResp = userRpc.GetUserListByPageResp
-	LoginByAccountReq     = userRpc.LoginByAccountReq
-	LoginByAccountResp    = userRpc.LoginByAccountResp
-	LoginByEmailReq       = userRpc.LoginByEmailReq
-	LoginByEmailResp      = userRpc.LoginByEmailResp
-	LogoutReq             = userRpc.LogoutReq
-	LogoutResp            = userRpc.LogoutResp
-	ParseTokenReq         = userRpc.ParseTokenReq
-	ParseTokenResp        = userRpc.ParseTokenResp
-	RegisterByAccountReq  = userRpc.RegisterByAccountReq
-	RegisterByAccountResp = userRpc.RegisterByAccountResp
-	RegisterByEmailReq    = userRpc.RegisterByEmailReq
-	RegisterByEmailResp   = userRpc.RegisterByEmailResp
-	UpdateAdminDetailReq  = userRpc.UpdateAdminDetailReq
-	UpdateAdminDetailResp = userRpc.UpdateAdminDetailResp
-	UpdateMenuReq         = userRpc.UpdateMenuReq
-	UpdateMenuResp        = userRpc.UpdateMenuResp
-	UpdatePermissionReq   = userRpc.UpdatePermissionReq
-	UpdatePermissionResp  = userRpc.UpdatePermissionResp
-	UpdateRoleReq         = userRpc.UpdateRoleReq
-	UpdateRoleResp        = userRpc.UpdateRoleResp
-	UpdateUserByIdReq     = userRpc.UpdateUserByIdReq
-	UpdateUserByIdResp    = userRpc.UpdateUserByIdResp
+	AdminUserListItem            = userRpc.AdminUserListItem
+	AdminUserListReq             = userRpc.AdminUserListReq
+	AdminUserListResp            = userRpc.AdminUserListResp
+	AdminUserLoginReq            = userRpc.AdminUserLoginReq
+	AdminUserLoginResp           = userRpc.AdminUserLoginResp
+	CheckUserGoogleCodeByIdReq   = userRpc.CheckUserGoogleCodeByIdReq
+	CheckUserGoogleCodeByIdResp  = userRpc.CheckUserGoogleCodeByIdResp
+	CreateAdminUserReq           = userRpc.CreateAdminUserReq
+	CreateAdminUserResp          = userRpc.CreateAdminUserResp
+	DeleteAdminUserReq           = userRpc.DeleteAdminUserReq
+	DeleteAdminUserResp          = userRpc.DeleteAdminUserResp
+	GetAdminDetailReq            = userRpc.GetAdminDetailReq
+	GetAdminDetailResp           = userRpc.GetAdminDetailResp
+	GetUserDetailByIdReq         = userRpc.GetUserDetailByIdReq
+	GetUserDetailByIdResp        = userRpc.GetUserDetailByIdResp
+	GetUserListByIdsItem         = userRpc.GetUserListByIdsItem
+	GetUserListByIdsReq          = userRpc.GetUserListByIdsReq
+	GetUserListByIdsResp         = userRpc.GetUserListByIdsResp
+	GetUserListByPageItem        = userRpc.GetUserListByPageItem
+	GetUserListByPageReq         = userRpc.GetUserListByPageReq
+	GetUserListByPageResp        = userRpc.GetUserListByPageResp
+	LoginByAccountReq            = userRpc.LoginByAccountReq
+	LoginByAccountResp           = userRpc.LoginByAccountResp
+	LoginByEmailReq              = userRpc.LoginByEmailReq
+	LoginByEmailResp             = userRpc.LoginByEmailResp
+	LogoutReq                    = userRpc.LogoutReq
+	LogoutResp                   = userRpc.LogoutResp
+	ParseTokenReq                = userRpc.ParseTokenReq
+	ParseTokenResp               = userRpc.ParseTokenResp
+	RegisterByAccountReq         = userRpc.RegisterByAccountReq
+	RegisterByAccountResp        = userRpc.RegisterByAccountResp
+	RegisterByEmailReq           = userRpc.RegisterByEmailReq
+	RegisterByEmailResp          = userRpc.RegisterByEmailResp
+	UpdateAdminDetailReq         = userRpc.UpdateAdminDetailReq
+	UpdateAdminDetailResp        = userRpc.UpdateAdminDetailResp
+	UpdateUserDetailByIdReq      = userRpc.UpdateUserDetailByIdReq
+	UpdateUserDetailByIdResp     = userRpc.UpdateUserDetailByIdResp
+	UpdateUserGoogleCodeByIdReq  = userRpc.UpdateUserGoogleCodeByIdReq
+	UpdateUserGoogleCodeByIdResp = userRpc.UpdateUserGoogleCodeByIdResp
 
 	UserService interface {
 		GetUserDetailById(ctx context.Context, in *GetUserDetailByIdReq, opts ...grpc.CallOption) (*GetUserDetailByIdResp, error)
-		UpdateUserById(ctx context.Context, in *UpdateUserByIdReq, opts ...grpc.CallOption) (*UpdateUserByIdResp, error)
 		GetUserListByPage(ctx context.Context, in *GetUserListByPageReq, opts ...grpc.CallOption) (*GetUserListByPageResp, error)
 		GetUserListByIds(ctx context.Context, in *GetUserListByIdsReq, opts ...grpc.CallOption) (*GetUserListByIdsResp, error)
+		UpdateUserGoogleCodeById(ctx context.Context, in *UpdateUserGoogleCodeByIdReq, opts ...grpc.CallOption) (*UpdateUserGoogleCodeByIdResp, error)
+		CheckUserGoogleCodeById(ctx context.Context, in *CheckUserGoogleCodeByIdReq, opts ...grpc.CallOption) (*CheckUserGoogleCodeByIdResp, error)
+		UpdateUserDetailById(ctx context.Context, in *UpdateUserDetailByIdReq, opts ...grpc.CallOption) (*UpdateUserDetailByIdResp, error)
 	}
 
 	defaultUserService struct {
@@ -97,11 +78,6 @@ func (m *defaultUserService) GetUserDetailById(ctx context.Context, in *GetUserD
 	return client.GetUserDetailById(ctx, in, opts...)
 }
 
-func (m *defaultUserService) UpdateUserById(ctx context.Context, in *UpdateUserByIdReq, opts ...grpc.CallOption) (*UpdateUserByIdResp, error) {
-	client := userRpc.NewUserServiceClient(m.cli.Conn())
-	return client.UpdateUserById(ctx, in, opts...)
-}
-
 func (m *defaultUserService) GetUserListByPage(ctx context.Context, in *GetUserListByPageReq, opts ...grpc.CallOption) (*GetUserListByPageResp, error) {
 	client := userRpc.NewUserServiceClient(m.cli.Conn())
 	return client.GetUserListByPage(ctx, in, opts...)
@@ -110,4 +86,19 @@ func (m *defaultUserService) GetUserListByPage(ctx context.Context, in *GetUserL
 func (m *defaultUserService) GetUserListByIds(ctx context.Context, in *GetUserListByIdsReq, opts ...grpc.CallOption) (*GetUserListByIdsResp, error) {
 	client := userRpc.NewUserServiceClient(m.cli.Conn())
 	return client.GetUserListByIds(ctx, in, opts...)
+}
+
+func (m *defaultUserService) UpdateUserGoogleCodeById(ctx context.Context, in *UpdateUserGoogleCodeByIdReq, opts ...grpc.CallOption) (*UpdateUserGoogleCodeByIdResp, error) {
+	client := userRpc.NewUserServiceClient(m.cli.Conn())
+	return client.UpdateUserGoogleCodeById(ctx, in, opts...)
+}
+
+func (m *defaultUserService) CheckUserGoogleCodeById(ctx context.Context, in *CheckUserGoogleCodeByIdReq, opts ...grpc.CallOption) (*CheckUserGoogleCodeByIdResp, error) {
+	client := userRpc.NewUserServiceClient(m.cli.Conn())
+	return client.CheckUserGoogleCodeById(ctx, in, opts...)
+}
+
+func (m *defaultUserService) UpdateUserDetailById(ctx context.Context, in *UpdateUserDetailByIdReq, opts ...grpc.CallOption) (*UpdateUserDetailByIdResp, error) {
+	client := userRpc.NewUserServiceClient(m.cli.Conn())
+	return client.UpdateUserDetailById(ctx, in, opts...)
 }
