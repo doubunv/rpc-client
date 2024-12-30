@@ -27,6 +27,8 @@ type (
 	GetAdminDetailResp           = userRpc.GetAdminDetailResp
 	GetUserDetailByIdReq         = userRpc.GetUserDetailByIdReq
 	GetUserDetailByIdResp        = userRpc.GetUserDetailByIdResp
+	GetUserDetailByQueryReq      = userRpc.GetUserDetailByQueryReq
+	GetUserDetailByQueryResp     = userRpc.GetUserDetailByQueryResp
 	GetUserListByIdsItem         = userRpc.GetUserListByIdsItem
 	GetUserListByIdsReq          = userRpc.GetUserListByIdsReq
 	GetUserListByIdsResp         = userRpc.GetUserListByIdsResp

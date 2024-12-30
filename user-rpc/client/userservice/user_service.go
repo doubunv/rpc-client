@@ -5,7 +5,6 @@ package userservice
 
 import (
 	"context"
-
 	"github.com/doubunv/rpc-client/user-rpc/userRpc"
 
 	"github.com/zeromicro/go-zero/zrpc"
@@ -28,6 +27,8 @@ type (
 	GetAdminDetailResp           = userRpc.GetAdminDetailResp
 	GetUserDetailByIdReq         = userRpc.GetUserDetailByIdReq
 	GetUserDetailByIdResp        = userRpc.GetUserDetailByIdResp
+	GetUserDetailByQueryReq      = userRpc.GetUserDetailByQueryReq
+	GetUserDetailByQueryResp     = userRpc.GetUserDetailByQueryResp
 	GetUserListByIdsItem         = userRpc.GetUserListByIdsItem
 	GetUserListByIdsReq          = userRpc.GetUserListByIdsReq
 	GetUserListByIdsResp         = userRpc.GetUserListByIdsResp
@@ -60,6 +61,7 @@ type (
 		UpdateUserGoogleCodeById(ctx context.Context, in *UpdateUserGoogleCodeByIdReq, opts ...grpc.CallOption) (*UpdateUserGoogleCodeByIdResp, error)
 		CheckUserGoogleCodeById(ctx context.Context, in *CheckUserGoogleCodeByIdReq, opts ...grpc.CallOption) (*CheckUserGoogleCodeByIdResp, error)
 		UpdateUserDetailById(ctx context.Context, in *UpdateUserDetailByIdReq, opts ...grpc.CallOption) (*UpdateUserDetailByIdResp, error)
+		GetUserDetailByQuery(ctx context.Context, in *GetUserDetailByQueryReq, opts ...grpc.CallOption) (*GetUserDetailByIdResp, error)
 	}
 
 	defaultUserService struct {
@@ -101,4 +103,9 @@ func (m *defaultUserService) CheckUserGoogleCodeById(ctx context.Context, in *Ch
 func (m *defaultUserService) UpdateUserDetailById(ctx context.Context, in *UpdateUserDetailByIdReq, opts ...grpc.CallOption) (*UpdateUserDetailByIdResp, error) {
 	client := userRpc.NewUserServiceClient(m.cli.Conn())
 	return client.UpdateUserDetailById(ctx, in, opts...)
+}
+
+func (m *defaultUserService) GetUserDetailByQuery(ctx context.Context, in *GetUserDetailByQueryReq, opts ...grpc.CallOption) (*GetUserDetailByIdResp, error) {
+	client := userRpc.NewUserServiceClient(m.cli.Conn())
+	return client.GetUserDetailByQuery(ctx, in, opts...)
 }

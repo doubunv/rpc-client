@@ -611,6 +611,7 @@ const (
 	UserService_UpdateUserGoogleCodeById_FullMethodName = "/rpc.UserService/UpdateUserGoogleCodeById"
 	UserService_CheckUserGoogleCodeById_FullMethodName  = "/rpc.UserService/CheckUserGoogleCodeById"
 	UserService_UpdateUserDetailById_FullMethodName     = "/rpc.UserService/UpdateUserDetailById"
+	UserService_GetUserDetailByQuery_FullMethodName     = "/rpc.UserService/GetUserDetailByQuery"
 )
 
 // UserServiceClient is the client API for UserService service.
@@ -623,6 +624,7 @@ type UserServiceClient interface {
 	UpdateUserGoogleCodeById(ctx context.Context, in *UpdateUserGoogleCodeByIdReq, opts ...grpc.CallOption) (*UpdateUserGoogleCodeByIdResp, error)
 	CheckUserGoogleCodeById(ctx context.Context, in *CheckUserGoogleCodeByIdReq, opts ...grpc.CallOption) (*CheckUserGoogleCodeByIdResp, error)
 	UpdateUserDetailById(ctx context.Context, in *UpdateUserDetailByIdReq, opts ...grpc.CallOption) (*UpdateUserDetailByIdResp, error)
+	GetUserDetailByQuery(ctx context.Context, in *GetUserDetailByQueryReq, opts ...grpc.CallOption) (*GetUserDetailByIdResp, error)
 }
 
 type userServiceClient struct {
@@ -693,6 +695,16 @@ func (c *userServiceClient) UpdateUserDetailById(ctx context.Context, in *Update
 	return out, nil
 }
 
+func (c *userServiceClient) GetUserDetailByQuery(ctx context.Context, in *GetUserDetailByQueryReq, opts ...grpc.CallOption) (*GetUserDetailByIdResp, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserDetailByIdResp)
+	err := c.cc.Invoke(ctx, UserService_GetUserDetailByQuery_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UserServiceServer is the server API for UserService service.
 // All implementations must embed UnimplementedUserServiceServer
 // for forward compatibility.
@@ -703,6 +715,7 @@ type UserServiceServer interface {
 	UpdateUserGoogleCodeById(context.Context, *UpdateUserGoogleCodeByIdReq) (*UpdateUserGoogleCodeByIdResp, error)
 	CheckUserGoogleCodeById(context.Context, *CheckUserGoogleCodeByIdReq) (*CheckUserGoogleCodeByIdResp, error)
 	UpdateUserDetailById(context.Context, *UpdateUserDetailByIdReq) (*UpdateUserDetailByIdResp, error)
+	GetUserDetailByQuery(context.Context, *GetUserDetailByQueryReq) (*GetUserDetailByIdResp, error)
 	mustEmbedUnimplementedUserServiceServer()
 }
 
@@ -730,6 +743,9 @@ func (UnimplementedUserServiceServer) CheckUserGoogleCodeById(context.Context, *
 }
 func (UnimplementedUserServiceServer) UpdateUserDetailById(context.Context, *UpdateUserDetailByIdReq) (*UpdateUserDetailByIdResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateUserDetailById not implemented")
+}
+func (UnimplementedUserServiceServer) GetUserDetailByQuery(context.Context, *GetUserDetailByQueryReq) (*GetUserDetailByIdResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserDetailByQuery not implemented")
 }
 func (UnimplementedUserServiceServer) mustEmbedUnimplementedUserServiceServer() {}
 func (UnimplementedUserServiceServer) testEmbeddedByValue()                     {}
@@ -860,6 +876,24 @@ func _UserService_UpdateUserDetailById_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UserService_GetUserDetailByQuery_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserDetailByQueryReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).GetUserDetailByQuery(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: UserService_GetUserDetailByQuery_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).GetUserDetailByQuery(ctx, req.(*GetUserDetailByQueryReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // UserService_ServiceDesc is the grpc.ServiceDesc for UserService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -890,6 +924,10 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateUserDetailById",
 			Handler:    _UserService_UpdateUserDetailById_Handler,
+		},
+		{
+			MethodName: "GetUserDetailByQuery",
+			Handler:    _UserService_GetUserDetailByQuery_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

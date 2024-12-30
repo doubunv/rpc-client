@@ -5,7 +5,6 @@ package userloginservice
 
 import (
 	"context"
-
 	"github.com/doubunv/rpc-client/user-rpc/userRpc"
 
 	"github.com/zeromicro/go-zero/zrpc"
@@ -28,6 +27,8 @@ type (
 	GetAdminDetailResp           = userRpc.GetAdminDetailResp
 	GetUserDetailByIdReq         = userRpc.GetUserDetailByIdReq
 	GetUserDetailByIdResp        = userRpc.GetUserDetailByIdResp
+	GetUserDetailByQueryReq      = userRpc.GetUserDetailByQueryReq
+	GetUserDetailByQueryResp     = userRpc.GetUserDetailByQueryResp
 	GetUserListByIdsItem         = userRpc.GetUserListByIdsItem
 	GetUserListByIdsReq          = userRpc.GetUserListByIdsReq
 	GetUserListByIdsResp         = userRpc.GetUserListByIdsResp
